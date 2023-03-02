@@ -1,0 +1,12 @@
+ create procedure cibil(in empid int,in mail varchar(30))
+     BEGIN
+     DECLARE cib int;
+     select cibil_score into cib from customer where email=mail;
+     IF cib>60 THEN
+     call Copy_loan1(mail);
+     call add_agent(empid,mail);
+     ELSE 
+     select'Loan declined'	
+     END IF; 
+     END;
+     AC
